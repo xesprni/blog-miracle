@@ -7,7 +7,7 @@
         <module>blog-framework</module>
         <module>blog-data</module>
         <module>blog-gateway</module>
-        <module>blog-feign</module>
+        <module>blog-feign-api</module>
         <module>blog-article</module>
     </modules>
     <parent>

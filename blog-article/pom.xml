@@ -27,6 +27,11 @@
             <artifactId>blog-framework</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.miracle</groupId>
+            <artifactId>blog-feign-api</artifactId>
+            <version></version>
+        </dependency>
     </dependencies>
 
 </project>

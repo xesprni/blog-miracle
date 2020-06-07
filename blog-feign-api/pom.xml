@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>blog-feign</artifactId>
+    <artifactId>blog-feign-api</artifactId>
 
     <name>blog-feign</name>
     <!-- FIXME change it to the project's website -->
