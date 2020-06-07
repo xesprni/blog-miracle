@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public ModelResult<String> exceptionHandler(Exception e) {
         e.printStackTrace();
-        log.error("捕获到异常:"+e);
+        log.error("catch exception:", e);
         if (e instanceof MethodArgumentNotValidException) {
             return new ModelResultClient<String>().fail(BlogErrorCodeAndMsgEnum.PARAM_VALIDATE_ERROR.getCode(), BlogErrorCodeAndMsgEnum.PARAM_VALIDATE_ERROR.getMsg());
         } else {
