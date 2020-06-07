@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.miracle</groupId>
             <artifactId>blog-feign-api</artifactId>
-            <version></version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
