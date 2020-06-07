@@ -1,0 +1,42 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+      - id: blog
+        uri: lb://blog-admin
+        predicates:
+          - Path=/blog/**
+#        filters:
+#          - StripPrefix=1
+      - id: editor
+        uri: lb://blog-admin
+        predicates:
+          - Path=/admin/editor/**
+        #        filters:
+        #          - StripPrefix=1
+      - id: dict
+        uri: lb://blog-admin
+        predicates:
+          - Path=/admin/dict/**
+#        filters:
+#          - StripPrefix=1
+      - id: baidu_route
+        uri: http://www.baidu.com
+        predicates:
+          - Path=/baidu/**
+        filters:
+          - StripPrefix=1
+  application:
+    name: blog-gateway
+  devtools:
+    livereload:
+      port: 35732
+server:
+  port: 8099
+feign:
+  hystrix:
+    enabled: true
