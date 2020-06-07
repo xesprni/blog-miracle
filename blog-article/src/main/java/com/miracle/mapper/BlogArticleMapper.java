@@ -18,5 +18,5 @@ public interface BlogArticleMapper extends BaseMapper<ArticleDTO> {
      * @param id article id
      * @return article list
      */
-    ArticleDetailDTO getArticleDetail(@Param("id") Long id);
+    ArticleDetailDTO getArticleById(@Param("id") Long id);
 }
