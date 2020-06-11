@@ -1,13 +1,13 @@
 package com.miracle.api.article;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.miracle.entity.article.ArticleDTO;
 import com.miracle.entity.article.ArticleDetailDTO;
 import com.miracle.entity.article.ArticleQueryDTO;
+import com.miracle.model.ModelResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 /**
  * @author Miracle
@@ -22,8 +22,8 @@ public interface IArticleService{
      * @return list
      */
     @PostMapping("/getArticleList")
-    Flux<ArticleDTO> getArticleList(@RequestBody(required = false) ArticleQueryDTO articleQueryDTO);
+    ModelResult<Page<ArticleDTO>> getArticleList(@RequestBody(required = false) ArticleQueryDTO articleQueryDTO);
 
     @GetMapping("/getArticleById")
-    Mono<ArticleDetailDTO> getArticleById(@RequestParam("id") String id);
+    ModelResult<ArticleDetailDTO> getArticleById(@RequestParam("id") String id);
 }

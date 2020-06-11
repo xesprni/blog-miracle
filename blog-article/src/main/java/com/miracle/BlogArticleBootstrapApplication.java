@@ -20,7 +20,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class BlogArticleBootstrapApplication{
 
     public static void main(String[] args) {
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(BlogArticleBootstrapApplication.class).web(WebApplicationType.REACTIVE);
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(BlogArticleBootstrapApplication.class).web(WebApplicationType.SERVLET);
         builder.run(args);
     }
 
