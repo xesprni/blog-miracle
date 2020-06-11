@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAsync
-@MapperScan("com.miracle.mapper")
+@MapperScan("com.miracle.repository")
 @EnableFeignClients(basePackages = {"com.miracle.api.admin"})
 public class BlogArticleBootstrapApplication{
 

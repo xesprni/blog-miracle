@@ -1,9 +1,9 @@
-package com.miracle.mapper;
+package com.miracle.repository.article.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.miracle.entity.article.ArticleDTO;
-import com.miracle.entity.article.ArticleDetailDTO;
+import com.miracle.repository.article.entity.ArticleDTO;
+import com.miracle.repository.article.entity.ArticleDetailDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.miracle.entity.article;
+package com.miracle.repository.article.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
