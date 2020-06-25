@@ -9,22 +9,16 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
+      - id: article
+        uri: lb://blog-article
+        predicates:
+          - Path=/article/**
+#        filters:
+#          - StripPrefix=1
       - id: blog
         uri: lb://blog-admin
         predicates:
-          - Path=/blog/**
-#        filters:
-#          - StripPrefix=1
-      - id: editor
-        uri: lb://blog-admin
-        predicates:
-          - Path=/admin/editor/**
-        #        filters:
-        #          - StripPrefix=1
-      - id: dict
-        uri: lb://blog-admin
-        predicates:
-          - Path=/admin/dict/**
+          - Path=/admin/**
 #        filters:
 #          - StripPrefix=1
       - id: baidu_route
@@ -39,7 +33,7 @@ spring:
     livereload:
       port: 35732
 server:
-  port: 8099
+  port: 8000
 feign:
   hystrix:
     enabled: true

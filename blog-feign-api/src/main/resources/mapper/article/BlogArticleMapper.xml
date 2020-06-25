@@ -30,7 +30,7 @@
         </if>
         )
         values (
-        #{po.title}, #{po.content}, #{pos.author}, #{po.summary}
+        #{po.title}, #{po.content}, #{po.author}, #{po.summary}
         <if test="po.type!=null">
             ,#{po.type}
         </if>

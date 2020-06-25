@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 /**
  * @author Miracle
@@ -30,8 +31,15 @@ public class BlogArticleController implements IArticleService {
     }
 
     @Override
-    public ModelResult<PageResult<ArticlePO>> getArticleList(@RequestBody @Valid ArticleQueryVO articleQueryVO) {
-        return null;
+    public ModelResult<PageResult<ArticlePO>> getArticleList(@RequestBody(required = false) @Valid ArticleQueryVO articleQueryVO) {
+        if (Objects.isNull(articleQueryVO)) {
+            articleQueryVO = new ArticleQueryVO();
+        }
+        PageResult<ArticlePO> result = articleService.getArticleList(articleQueryVO);
+        if (Objects.nonNull(result)) {
+            return new ModelResultClient<PageResult<ArticlePO>>().success(result);
+        }
+        return new ModelResultClient<PageResult<ArticlePO>>().fail();
     }
 
     @Override
