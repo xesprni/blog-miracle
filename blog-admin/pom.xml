@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>blog-gateway</artifactId>
+    <artifactId>blog-admin</artifactId>
 
-    <name>blog-gateway</name>
+    <name>blog-admin</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -23,16 +23,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <groupId>com.miracle</groupId>
+            <artifactId>blog-framework</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.miracle</groupId>
-            <artifactId>blog-framework</artifactId>
+            <artifactId>blog-feign-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.miracle</groupId>
+            <artifactId>blog-data</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
