@@ -1,8 +1,5 @@
-package com.miracle.repository.article.entity;
+package com.miracle.entity.article.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -15,8 +12,7 @@ import java.sql.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("blog_article")
-public class ArticleDTO implements Serializable {
+public class ArticlePO implements Serializable {
 
     private static final long serialVersionUID = -2613507073210794690L;
 
@@ -24,7 +20,6 @@ public class ArticleDTO implements Serializable {
     /**
      * 文章主键
      */
-    @TableId(value = "article_id", type = IdType.AUTO)
     private Long articleId;
 
     /**

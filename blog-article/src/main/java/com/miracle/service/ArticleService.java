@@ -1,6 +1,6 @@
 package com.miracle.service;
 
-import com.miracle.repository.article.entity.ArticleDetailDTO;
+import com.miracle.entity.article.dto.ArticleDetailDTO;
 import com.miracle.repository.article.mapper.BlogArticleMapper;
 import org.springframework.stereotype.Service;
 

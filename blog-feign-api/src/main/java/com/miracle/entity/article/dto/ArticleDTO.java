@@ -1,4 +1,4 @@
-package com.miracle.repository.article.entity;
+package com.miracle.entity.article.dto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -16,7 +16,7 @@ import java.sql.Date;
 @Data
 @Accessors(chain = true)
 @TableName("blog_article")
-public class ArticleDetailDTO implements Serializable {
+public class ArticleDTO implements Serializable {
 
     private static final long serialVersionUID = -2613507073210794690L;
 
@@ -33,9 +33,9 @@ public class ArticleDetailDTO implements Serializable {
     private String title;
 
     /**
-     * 文章内容
+     * 文章提要
      */
-    private String content;
+    private String summary;
 
     /**
      * 文章类型 关联字典表
@@ -68,8 +68,8 @@ public class ArticleDetailDTO implements Serializable {
     private Integer topFlag;
 
     /**
-     * 大纲
+     * 文章内容
      */
-    private String summary;
+    private String content;
 
 }

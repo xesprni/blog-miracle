@@ -1,9 +1,10 @@
 package com.miracle.api.article;
 
 
-import com.miracle.entity.article.ArticleDetailPO;
-import com.miracle.entity.article.ArticlePO;
-import com.miracle.entity.article.ArticleQueryVO;
+import com.miracle.entity.admin.vo.ArticleDetailVO;
+import com.miracle.entity.article.po.ArticleDetailPO;
+import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.vo.ArticleQueryVO;
 import com.miracle.model.ModelResult;
 import com.miracle.model.PageResult;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -33,4 +34,14 @@ public interface IArticleService {
      */
     @GetMapping("/getArticleById")
     ModelResult<ArticleDetailPO> getArticleById(@RequestParam("id") String id);
+
+    /**
+     * saveArticle
+     *
+     * @param articleDetailVO vo
+     * @return boolean
+     */
+    @PostMapping("/saveArticle")
+    ModelResult<Boolean> saveArticle(@RequestBody ArticleDetailVO articleDetailVO);
+
 }

@@ -1,9 +1,10 @@
 package com.miracle.controller;
 
 import com.miracle.api.article.IArticleService;
-import com.miracle.entity.article.ArticleDetailPO;
-import com.miracle.entity.article.ArticlePO;
-import com.miracle.entity.article.ArticleQueryVO;
+import com.miracle.entity.admin.vo.ArticleDetailVO;
+import com.miracle.entity.article.po.ArticleDetailPO;
+import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.vo.ArticleQueryVO;
 import com.miracle.model.ModelResult;
 import com.miracle.model.PageResult;
 import com.miracle.service.ArticleService;
@@ -33,6 +34,14 @@ public class BlogArticleController implements IArticleService {
 
     @Override
     public ModelResult<ArticleDetailPO> getArticleById(@RequestParam("id") String id) {
+        return null;
+    }
+
+    @Override
+    public ModelResult<Boolean> saveArticle(@RequestBody @Valid ArticleDetailVO articleDetailVO) {
+
+
+
         return null;
     }
 

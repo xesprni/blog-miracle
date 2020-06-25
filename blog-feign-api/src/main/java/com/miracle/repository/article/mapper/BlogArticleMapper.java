@@ -2,8 +2,9 @@ package com.miracle.repository.article.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.miracle.repository.article.entity.ArticleDTO;
-import com.miracle.repository.article.entity.ArticleDetailDTO;
+import com.miracle.entity.article.dto.ArticleDTO;
+import com.miracle.entity.article.dto.ArticleDetailDTO;
+import com.miracle.entity.article.po.ArticleDetailPO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -20,4 +21,13 @@ public interface BlogArticleMapper extends BaseMapper<ArticleDTO> {
      * @return article list
      */
     ArticleDetailDTO getArticleById(@Param("id") Long id);
+
+    /**
+     * save article
+     *
+     * @param articleDetailPO
+     * @return
+     */
+    Integer saveArticle(@Param("po") ArticleDetailPO articleDetailPO);
+
 }

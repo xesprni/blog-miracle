@@ -1,4 +1,4 @@
-package com.miracle.entity.article;
+package com.miracle.entity.article.vo;
 
 import com.miracle.model.ApiRequest;
 import lombok.Data;
