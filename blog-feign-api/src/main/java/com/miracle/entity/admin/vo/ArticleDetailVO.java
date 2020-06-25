@@ -1,4 +1,4 @@
-package com.miracle.entity.article;
+package com.miracle.entity.admin.vo;
 
 import lombok.Data;
 
@@ -8,14 +8,12 @@ import java.io.Serializable;
 
 /**
  * @author Miracle
- * @date 10:17 2019/6/30
+ * @date 8:04 2020/6/25
  */
 @Data
-public class ArticleDetailPO implements Serializable {
+public class ArticleDetailVO implements Serializable {
 
     private static final long serialVersionUID = -2613507073210794690L;
-
-    private Long articleId;
 
     /**
      * 标题
@@ -50,6 +48,5 @@ public class ArticleDetailPO implements Serializable {
      * 置顶标识
      */
     private Integer topFlag;
-
 
 }

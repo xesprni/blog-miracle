@@ -10,17 +10,17 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @author Miracle
- * @date 12:24 2020/6/7
+ * @date 7:56 2020/6/25
  */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAsync
 @MapperScan("com.miracle.repository")
-@EnableFeignClients(basePackages = {"com.miracle.api.admin"})
-public class BlogArticleBootstrapApplication{
+@EnableFeignClients(basePackages = {"com.miracle.api.article"})
+public class BlogAdminBootstrapApplication {
 
     public static void main(String[] args) {
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(BlogArticleBootstrapApplication.class).web(WebApplicationType.SERVLET);
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(BlogAdminBootstrapApplication.class).web(WebApplicationType.SERVLET);
         builder.run(args);
     }
 

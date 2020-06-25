@@ -1,14 +1,10 @@
-package com.miracle.entity.article;
+package com.miracle.entity.article.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
 
 /**
  * @author Miracle
@@ -16,8 +12,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-@TableName("blog_article")
-public class ArticleDetailDTO implements Serializable {
+public class ArticlePO implements Serializable {
 
     private static final long serialVersionUID = -2613507073210794690L;
 
@@ -25,7 +20,6 @@ public class ArticleDetailDTO implements Serializable {
     /**
      * 文章主键
      */
-    @TableId(value = "article_id", type = IdType.AUTO)
     private Long articleId;
 
     /**
@@ -34,9 +28,9 @@ public class ArticleDetailDTO implements Serializable {
     private String title;
 
     /**
-     * 文章内容
+     * 文章提要
      */
-    private String content;
+    private String summary;
 
     /**
      * 文章类型 关联字典表
@@ -69,8 +63,8 @@ public class ArticleDetailDTO implements Serializable {
     private Integer topFlag;
 
     /**
-     * 大纲
+     * 文章内容
      */
-    private String summary;
+    private String content;
 
 }

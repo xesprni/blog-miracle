@@ -30,6 +30,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.miracle</groupId>
+            <artifactId>blog-framework</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -5,10 +5,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>blog-framework</module>
-        <module>blog-data</module>
         <module>blog-gateway</module>
         <module>blog-feign-api</module>
         <module>blog-article</module>
+        <module>blog-admin</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

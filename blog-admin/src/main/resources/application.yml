@@ -1,5 +1,5 @@
 server:
-  port: 8070
+  port: 8080
 spring:
   datasource:
     username: root
@@ -7,14 +7,14 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
   application:
-    name: blog-article
+    name: blog-admin
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
 mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
-  mapper-locations: classpath:mapper/article/*.xml
+  mapper-locations: classpath:mapper/*.xml
   # 以下配置均有默认值,可以不设置
   global-config:
     db-config:

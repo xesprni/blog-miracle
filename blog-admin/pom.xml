@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>blog-data</artifactId>
+    <artifactId>blog-admin</artifactId>
 
-    <name>blog-data</name>
+    <name>blog-admin</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -19,22 +19,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <mybatis.plus.version>3.3.2</mybatis.plus.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis.plus.version}</version>
+            <groupId>com.miracle</groupId>
+            <artifactId>blog-framework</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>com.miracle</groupId>
+            <artifactId>blog-feign-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
