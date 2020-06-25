@@ -25,9 +25,9 @@ public interface BlogArticleMapper extends BaseMapper<ArticleDTO> {
     /**
      * save article
      *
-     * @param articleDetailPO
-     * @return
+     * @param po po
+     * @return affective lines
      */
-    Integer saveArticle(@Param("po") ArticleDetailPO articleDetailPO);
+    Integer saveArticle(@Param("po") ArticleDetailPO po);
 
 }

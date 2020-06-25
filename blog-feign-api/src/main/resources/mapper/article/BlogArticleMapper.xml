@@ -15,11 +15,29 @@
                read_count,
                data_flag,
                top_flag
-        from blog_article where article_id = #{id}
+        from blog_article
+        where article_id = #{id}
     </select>
 
-    <insert id="saveArticle">
-
+    <insert id="saveArticle" parameterType="com.miracle.entity.article.po.ArticleDetailPO">
+        insert into blog_article (
+        title, content, author, summary
+        <if test="po.type!=null">
+            ,type
+        </if>
+        <if test="po.topFlag!=null">
+            ,top_flag
+        </if>
+        )
+        values (
+        #{po.title}, #{po.content}, #{pos.author}, #{po.summary}
+        <if test="po.type!=null">
+            ,#{po.type}
+        </if>
+        <if test="po.topFlag!=null">
+            ,#{po.topFlag}
+        </if>
+        )
     </insert>
 
 </mapper>
