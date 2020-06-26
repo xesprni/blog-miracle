@@ -1,7 +1,5 @@
 package com.miracle.utils;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -17,7 +15,7 @@ import java.net.URL;
 @Slf4j
 public class WebUtils {
 
-    public static JSONObject getResultByUrl(String url) {
+    public static <T> T getResultByUrl(String url, Class<T> clazz) {
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
             StringBuilder response;
@@ -27,7 +25,7 @@ public class WebUtils {
                 while ((currentLine = in.readLine()) != null) {
                     response.append(currentLine);
                 }
-                return JSON.parseObject(response.toString());
+                return JsonUtil.string2Bean(response.toString(), clazz);
             } catch (IOException e) {
                 log.error("Read Error: " + e);
             }

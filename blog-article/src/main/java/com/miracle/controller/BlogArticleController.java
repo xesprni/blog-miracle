@@ -5,6 +5,7 @@ import com.miracle.api.article.IArticleService;
 import com.miracle.entity.admin.vo.ArticleDetailVO;
 import com.miracle.entity.article.po.ArticleDetailPO;
 import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.po.DailySentencePO;
 import com.miracle.entity.article.vo.ArticleQueryVO;
 import com.miracle.model.ModelResult;
 import com.miracle.model.ModelResultClient;
@@ -35,7 +36,7 @@ public class BlogArticleController implements IArticleService {
     }
 
     @Override
-    @Cacheable(value = "indexCache", key = "#articleQueryVO.pageNum")
+    @Cacheable(value = "indexCache", key = "#articleQueryVO.pageNum + #articleQueryVO.type")
     public ModelResult<PageResult<ArticlePO>> getArticleList(@RequestBody @Valid ArticleQueryVO articleQueryVO) {
         PageResult<ArticlePO> result = articleService.getArticleList(articleQueryVO);
         if (Objects.nonNull(result)) {
@@ -56,6 +57,16 @@ public class BlogArticleController implements IArticleService {
             return new ModelResultClient<Boolean>().success(true);
         }
         return new ModelResultClient<Boolean>().fail();
+    }
+
+    @Override
+    @Cacheable(value = "indexCache", key = "#root.methodName")
+    public ModelResult<DailySentencePO> getDailySentence() {
+        DailySentencePO dailySentence = articleService.getDailySentence();
+        if (Objects.nonNull(dailySentence)) {
+            return new ModelResultClient<DailySentencePO>().success(dailySentence);
+        }
+        return new ModelResultClient<DailySentencePO>().fail();
     }
 
 

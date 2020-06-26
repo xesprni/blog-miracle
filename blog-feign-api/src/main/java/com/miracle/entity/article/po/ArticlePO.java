@@ -67,4 +67,14 @@ public class ArticlePO implements Serializable {
      */
     private String content;
 
+    /**
+     * typeName
+     */
+    private String typeName;
+
+    /**
+     * 头图
+     */
+    private String previewImageUrl;
+
 }

@@ -12,5 +12,6 @@ public class ArticleQueryVO extends ApiRequest {
 
     private String id;
 
+    private int type;
 
 }

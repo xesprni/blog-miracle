@@ -2,14 +2,17 @@ package com.miracle.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.miracle.constant.UrlConstant;
 import com.miracle.entity.article.dto.ArticleDTO;
 import com.miracle.entity.article.dto.ArticleDetailDTO;
 import com.miracle.entity.article.po.ArticleDetailPO;
 import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.po.DailySentencePO;
 import com.miracle.entity.article.vo.ArticleQueryVO;
 import com.miracle.model.PageResult;
 import com.miracle.model.PageResultConvert;
 import com.miracle.repository.article.mapper.BlogArticleMapper;
+import com.miracle.utils.WebUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,6 +40,10 @@ public class ArticleService {
         QueryWrapper<ArticleDTO> queryWrapper = new QueryWrapper<>();
         queryWrapper.select(ArticleDTO.class, tableFieldInfo -> !"content".equals(tableFieldInfo.getColumn())).orderByDesc("top_flag").orderByDesc("update_time");
         return PageResultConvert.convert(articleMapper.selectPage(new Page<>(vo.getPageNum(), vo.getPageSize()), queryWrapper),ArticlePO.class);
+    }
+
+    public DailySentencePO getDailySentence() {
+        return WebUtils.getResultByUrl(UrlConstant.DAILY_ENGLISH, DailySentencePO.class);
     }
 
 }

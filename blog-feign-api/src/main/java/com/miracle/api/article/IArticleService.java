@@ -4,6 +4,7 @@ package com.miracle.api.article;
 import com.miracle.entity.admin.vo.ArticleDetailVO;
 import com.miracle.entity.article.po.ArticleDetailPO;
 import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.po.DailySentencePO;
 import com.miracle.entity.article.vo.ArticleQueryVO;
 import com.miracle.model.ModelResult;
 import com.miracle.model.PageResult;
@@ -44,4 +45,11 @@ public interface IArticleService {
     @PostMapping("/saveArticle")
     ModelResult<Boolean> saveArticle(@RequestBody ArticleDetailVO articleDetailVO);
 
+    /**
+     * get daily english sentence
+     *
+     * @return daily english sentence
+     */
+    @GetMapping("/getDailySentence")
+    ModelResult<DailySentencePO> getDailySentence();
 }
