@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
  * @author Miracle
  * @date 23:26 2020/6/25
  */
-@Service
+//@Service
 public class CommentService {
 }

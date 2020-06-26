@@ -5,15 +5,20 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.miracle.constant.UrlConstant;
 import com.miracle.entity.article.dto.ArticleDTO;
 import com.miracle.entity.article.dto.ArticleDetailDTO;
+import com.miracle.entity.article.dto.CommentDTO;
 import com.miracle.entity.article.po.ArticleDetailPO;
 import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.po.CommentPO;
 import com.miracle.entity.article.po.DailySentencePO;
 import com.miracle.entity.article.vo.ArticleQueryVO;
+import com.miracle.entity.article.vo.CommentVO;
 import com.miracle.model.PageResult;
 import com.miracle.model.PageResultConvert;
 import com.miracle.repository.article.mapper.BlogArticleMapper;
 import com.miracle.utils.WebUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Miracle
@@ -44,6 +49,10 @@ public class ArticleService {
 
     public DailySentencePO getDailySentence() {
         return WebUtils.getResultByUrl(UrlConstant.DAILY_ENGLISH, DailySentencePO.class);
+    }
+
+    public List<CommentPO> queryComment(CommentVO vo) {
+        return PageResultConvert.convert(articleMapper.queryComment(vo),CommentPO.class);
     }
 
 }

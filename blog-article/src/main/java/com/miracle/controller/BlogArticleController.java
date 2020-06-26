@@ -3,21 +3,26 @@ package com.miracle.controller;
 import cn.hutool.core.bean.BeanUtil;
 import com.miracle.api.article.IArticleService;
 import com.miracle.entity.admin.vo.ArticleDetailVO;
+import com.miracle.entity.article.dto.ArticleDetailDTO;
 import com.miracle.entity.article.po.ArticleDetailPO;
 import com.miracle.entity.article.po.ArticlePO;
+import com.miracle.entity.article.po.CommentPO;
 import com.miracle.entity.article.po.DailySentencePO;
 import com.miracle.entity.article.vo.ArticleQueryVO;
+import com.miracle.entity.article.vo.CommentVO;
 import com.miracle.model.ModelResult;
 import com.miracle.model.ModelResultClient;
 import com.miracle.model.PageResult;
 import com.miracle.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -47,7 +52,11 @@ public class BlogArticleController implements IArticleService {
 
     @Override
     public ModelResult<ArticleDetailPO> getArticleById(@RequestParam("id") String id) {
-        return null;
+        if (!StringUtils.isNumeric(id)) {
+            return new ModelResultClient<ArticleDetailPO>().fail();
+        }
+        ArticleDetailDTO article = articleService.getArticleById(Long.valueOf(id));
+        return new ModelResultClient<ArticleDetailPO>().success(BeanUtil.copyProperties(article, ArticleDetailPO.class));
     }
 
     @Override
@@ -67,6 +76,21 @@ public class BlogArticleController implements IArticleService {
             return new ModelResultClient<DailySentencePO>().success(dailySentence);
         }
         return new ModelResultClient<DailySentencePO>().fail();
+    }
+
+    @Override
+    public ModelResult<Boolean> saveComment(@RequestBody CommentVO vo) {
+
+        return null;
+    }
+
+    @Override
+    public ModelResult<List<CommentPO>> queryComment(@RequestBody CommentVO vo) {
+        if (vo.getArticleId()==null) {
+            return new ModelResultClient<List<CommentPO>>().fail();
+        }
+        List<CommentPO> lists = articleService.queryComment(vo);
+        return new ModelResultClient<List<CommentPO>>().success(lists);
     }
 
 

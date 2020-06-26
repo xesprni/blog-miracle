@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Configuration
 @EnableCaching
-public class GuavaCacheConfig {
+public class CaffeineCacheConfig {
 
     public static final int DEFAULT_MAXSIZE = 500;
     public static final int DEFAULT_TTL = 600;
@@ -34,7 +34,7 @@ public class GuavaCacheConfig {
     @Primary
     public CacheManager caffeineCacheManager() {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
-        ArrayList<CaffeineCache> caches = new ArrayList<CaffeineCache>();
+        ArrayList<CaffeineCache> caches = new ArrayList<>();
         caches.add(new CaffeineCache(INDEX_CACHE_NAME,
                 Caffeine.newBuilder().recordStats()
                         .expireAfterWrite(DEFAULT_TTL, TimeUnit.SECONDS)

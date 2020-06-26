@@ -14,7 +14,7 @@ spring:
         server-addr: 127.0.0.1:8848
 mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mapper/admin/*.xml
   # 以下配置均有默认值,可以不设置
   global-config:
     db-config:

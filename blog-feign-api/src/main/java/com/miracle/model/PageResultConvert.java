@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Miracle
@@ -25,4 +26,14 @@ public class PageResultConvert {
         }
         return null;
     }
+
+    public static <T, K> List<K> convert(List<T> source,Class<K> tClass) {
+        List<K> result = Lists.newArrayList();
+        if (!source.isEmpty()) {
+            source.stream().filter(Objects::nonNull).forEach(t -> result.add(BeanUtil.copyProperties(t,tClass)));
+            return result;
+        }
+        return null;
+    }
+
 }
