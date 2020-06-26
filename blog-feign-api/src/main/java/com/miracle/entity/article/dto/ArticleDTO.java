@@ -72,4 +72,9 @@ public class ArticleDTO implements Serializable {
      */
     private String content;
 
+    /**
+     * 头图
+     */
+    private String previewImageUrl;
+
 }

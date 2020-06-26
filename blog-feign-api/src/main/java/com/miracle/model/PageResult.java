@@ -2,6 +2,7 @@ package com.miracle.model;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,13 +10,15 @@ import java.util.List;
  * @date 10:25 2019/6/30
  */
 @Data
-public class PageResult<T> {
+public class PageResult<T> implements Serializable {
 
     private static final long serialVersionUID = -8892874039278251459L;
 
-    private Integer pageNum;
+    private Long pageNum;
 
-    private Integer pageSize;
+    private Long pageSize;
+
+    private Long total;
 
     List<T> pageData;
 }

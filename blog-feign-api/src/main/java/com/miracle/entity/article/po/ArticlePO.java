@@ -1,5 +1,7 @@
 package com.miracle.entity.article.po;
 
+import com.miracle.annotation.Dict;
+import com.miracle.annotation.DictItem;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -11,6 +13,7 @@ import java.sql.Date;
  * @date 10:17 2019/6/30
  */
 @Data
+@Dict({@DictItem(attr = "type",item = "ARTICLE_TYPE")})
 @Accessors(chain = true)
 public class ArticlePO implements Serializable {
 
@@ -66,5 +69,15 @@ public class ArticlePO implements Serializable {
      * 文章内容
      */
     private String content;
+
+    /**
+     * typeName
+     */
+    private String typeName;
+
+    /**
+     * 头图
+     */
+    private String previewImageUrl;
 
 }

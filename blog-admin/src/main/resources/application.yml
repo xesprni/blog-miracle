@@ -5,7 +5,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
   application:
     name: blog-admin
   cloud:
@@ -14,7 +14,7 @@ spring:
         server-addr: 127.0.0.1:8848
 mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mapper/admin/*.xml
   # 以下配置均有默认值,可以不设置
   global-config:
     db-config:
