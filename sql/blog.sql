@@ -23,18 +23,19 @@ create table blog_user
 
 create table blog_article
 (
-    article_id  bigint auto_increment comment '文章主键'
+    article_id        bigint auto_increment comment '文章主键'
         primary key,
-    title       varchar(20)                            not null comment '标题',
-    summary     varchar(100) default ''                null comment '提要',
-    content     text                                   not null comment '文章内容',
-    type        int          default 0                 not null comment '文章类型 关联字典表',
-    create_time timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
-    update_time timestamp    default CURRENT_TIMESTAMP null comment '创建时间',
-    author      varchar(20)                            not null comment '作者',
-    read_count  bigint       default 0                 not null comment '阅读数量',
-    data_flag   tinyint      default 1                 not null,
-    top_flag    tinyint      default 0                 null comment '置顶标识0否1是'
+    title             varchar(20)                            not null comment '标题',
+    summary           varchar(100) default ''                null comment '提要',
+    content           text                                   not null comment '文章内容',
+    type              int          default 0                 not null comment '文章类型 关联字典表',
+    create_time       timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
+    update_time       timestamp    default CURRENT_TIMESTAMP null comment '创建时间',
+    author            varchar(20)                            not null comment '作者',
+    preview_image_url varchar(100)                           null comment '预览图',
+    read_count        bigint       default 0                 not null comment '阅读数量',
+    data_flag         tinyint      default 1                 not null,
+    top_flag          tinyint      default 0                 null comment '置顶标识0否1是'
 )
     comment '文章表';
 
