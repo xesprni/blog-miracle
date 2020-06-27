@@ -1,4 +1,3 @@
-# pwd: DONGhuye@123
 create table blog_user
 (
     user_id         bigint                                not null comment '主键id'
