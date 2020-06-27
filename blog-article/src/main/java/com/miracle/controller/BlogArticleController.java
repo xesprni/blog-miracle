@@ -81,17 +81,16 @@ public class BlogArticleController implements IArticleService {
 
     @Override
     public ModelResult<Boolean> saveComment(@RequestBody CommentVO vo) {
-
-        return null;
+        return new ModelResultClient<Boolean>().success(articleService.saveComment(vo) == 1);
     }
 
     @Override
     public ModelResult<List<CommentPO>> queryComment(@RequestBody CommentVO vo) {
-        if (vo.getArticleId()==null) {
+        if (vo.getArticleId() == null) {
             return new ModelResultClient<List<CommentPO>>().fail();
         }
         List<CommentPO> lists = articleService.queryComment(vo);
-        if (lists==null) {
+        if (lists == null) {
             lists = new ArrayList<>();
         }
         return new ModelResultClient<List<CommentPO>>().success(lists);

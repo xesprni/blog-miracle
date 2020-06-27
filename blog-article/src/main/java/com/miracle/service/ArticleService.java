@@ -63,4 +63,8 @@ public class ArticleService {
         articleMapper.addReadCount(id);
     }
 
+    public Integer saveComment(CommentVO vo) {
+        return articleMapper.saveComment(vo);
+    }
+
 }

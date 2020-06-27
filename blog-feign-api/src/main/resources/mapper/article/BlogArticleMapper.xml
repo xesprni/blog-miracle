@@ -68,4 +68,9 @@
         where article_id = #{id}
     </update>
 
+    <insert id="saveComment" parameterType="com.miracle.entity.article.vo.CommentVO">
+        insert into blog_comment (article_id, content)
+        values (#{vo.articleId}, #{vo.content})
+    </insert>
+
 </mapper>

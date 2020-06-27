@@ -56,4 +56,11 @@ public interface BlogArticleMapper extends BaseMapper<ArticleDTO> {
      * @return affective lines
      */
     Long addReadCount(@Param("id") String id);
+
+    /**
+     * save Comment
+     * @param vo vo
+     * @return lines
+     */
+    Integer saveComment(@Param("vo") CommentVO vo);
 }
