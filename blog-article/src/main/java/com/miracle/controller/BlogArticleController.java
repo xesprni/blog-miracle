@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -69,7 +70,7 @@ public class BlogArticleController implements IArticleService {
     }
 
     @Override
-    @Cacheable(value = "indexCache", key = "#root.methodName")
+    @Cacheable(value = "dictCache", key = "#root.methodName")
     public ModelResult<DailySentencePO> getDailySentence() {
         DailySentencePO dailySentence = articleService.getDailySentence();
         if (Objects.nonNull(dailySentence)) {
@@ -90,6 +91,9 @@ public class BlogArticleController implements IArticleService {
             return new ModelResultClient<List<CommentPO>>().fail();
         }
         List<CommentPO> lists = articleService.queryComment(vo);
+        if (lists==null) {
+            lists = new ArrayList<>();
+        }
         return new ModelResultClient<List<CommentPO>>().success(lists);
     }
 

@@ -64,7 +64,7 @@ public class DictInjectAspect {
     }
 
     private void setDictValue(Object data) {
-        if (!data.getClass().isAnnotationPresent(Dict.class)) {
+        if (data == null || !data.getClass().isAnnotationPresent(Dict.class)) {
             return;
         }
         Dict annotation = data.getClass().getAnnotation(Dict.class);

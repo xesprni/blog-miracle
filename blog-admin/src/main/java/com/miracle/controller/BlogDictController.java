@@ -27,7 +27,7 @@ public class BlogDictController implements IDictService {
 
     @Override
 
-    @Cacheable(value = "indexCache", key = "#dictName")
+    @Cacheable(value = "dictCache", key = "#dictName")
     public ModelResult<List<DictPO>> getDictByItem(@RequestParam("dictName") String dictName) {
         return new ModelResultClient<List<DictPO>>().success(PageResultConvert.convert(blogDictMapper.queryDictByDictName(dictName),DictPO.class));
     }

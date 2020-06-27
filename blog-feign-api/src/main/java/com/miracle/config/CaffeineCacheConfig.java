@@ -22,7 +22,9 @@ public class CaffeineCacheConfig {
 
     public static final int DEFAULT_MAXSIZE = 500;
     public static final int DEFAULT_TTL = 600;
+    public static final int DEFAULT_MINUTE_TTL = 60;
     public static final String INDEX_CACHE_NAME = "indexCache";
+    public static final String DICT_CACHE_NAME = "dictCache";
 
 
     /**
@@ -38,6 +40,12 @@ public class CaffeineCacheConfig {
         caches.add(new CaffeineCache(INDEX_CACHE_NAME,
                 Caffeine.newBuilder().recordStats()
                         .expireAfterWrite(DEFAULT_TTL, TimeUnit.SECONDS)
+                        .maximumSize(DEFAULT_MAXSIZE)
+                        .build())
+        );
+        caches.add(new CaffeineCache(DICT_CACHE_NAME,
+                Caffeine.newBuilder().recordStats()
+                        .expireAfterWrite(DEFAULT_MINUTE_TTL, TimeUnit.MINUTES)
                         .maximumSize(DEFAULT_MAXSIZE)
                         .build())
         );
