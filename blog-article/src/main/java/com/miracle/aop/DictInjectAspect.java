@@ -45,7 +45,7 @@ public class DictInjectAspect {
      */
     @SuppressWarnings("unchecked")
     @AfterReturning(pointcut = "dictPoint()", returning = "res")
-    public void doAfterReturningGame(JoinPoint joinPoint, Object res) {
+    public void doAfterReturningInjectDict(JoinPoint joinPoint, Object res) {
         if (res instanceof ModelResult) {
             Object data = ((ModelResult) res).getData();
             List pageData = null;

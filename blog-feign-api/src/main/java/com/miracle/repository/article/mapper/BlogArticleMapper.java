@@ -36,9 +36,24 @@ public interface BlogArticleMapper extends BaseMapper<ArticleDTO> {
 
     /**
      * queryComment
+     *
      * @param vo vo
      * @return commentList
      */
     List<CommentDTO> queryComment(@Param("vo") CommentVO vo);
 
+    /**
+     * queryHotArticle
+     *
+     * @return articles
+     */
+    List<ArticleDTO> queryHotArticle();
+
+    /**
+     * addReadCount
+     *
+     * @param id id
+     * @return affective lines
+     */
+    Long addReadCount(@Param("id") String id);
 }

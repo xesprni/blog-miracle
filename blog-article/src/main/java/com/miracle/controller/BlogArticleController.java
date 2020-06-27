@@ -97,5 +97,11 @@ public class BlogArticleController implements IArticleService {
         return new ModelResultClient<List<CommentPO>>().success(lists);
     }
 
+    @Override
+    @Cacheable(value = "dictCache", key = "#root.methodName")
+    public ModelResult<List<ArticlePO>> getHotArticle() {
+        return new ModelResultClient<List<ArticlePO>>().success(articleService.getHotArticle());
+    }
+
 
 }

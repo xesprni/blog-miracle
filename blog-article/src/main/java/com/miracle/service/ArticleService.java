@@ -55,4 +55,12 @@ public class ArticleService {
         return PageResultConvert.convert(articleMapper.queryComment(vo),CommentPO.class);
     }
 
+    public List<ArticlePO> getHotArticle() {
+        return PageResultConvert.convert(articleMapper.queryHotArticle(), ArticlePO.class);
+    }
+
+    public void addReadCount(String id) {
+        articleMapper.addReadCount(id);
+    }
+
 }

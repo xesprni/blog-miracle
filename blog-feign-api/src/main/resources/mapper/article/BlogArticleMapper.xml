@@ -55,4 +55,17 @@
         order by comment_time DESC
     </select>
 
+    <select id="queryHotArticle" resultType="com.miracle.entity.article.dto.ArticleDTO">
+        select article_id, title, update_time, read_count
+        from blog_article
+        order by read_count desc
+        limit 0,3
+    </select>
+
+    <update id="addReadCount">
+        update blog_article
+        set read_count=read_count + 1
+        where article_id = #{id}
+    </update>
+
 </mapper>

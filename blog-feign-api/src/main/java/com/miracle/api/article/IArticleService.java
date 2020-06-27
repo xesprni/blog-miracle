@@ -75,4 +75,12 @@ public interface IArticleService {
     @PostMapping("/queryComment")
     ModelResult<List<CommentPO>> queryComment(@RequestBody CommentVO vo);
 
+    /**
+     * queryComment
+     *
+     * @return comment
+     */
+    @GetMapping("/getHotArticle")
+    ModelResult<List<ArticlePO>> getHotArticle();
+
 }
